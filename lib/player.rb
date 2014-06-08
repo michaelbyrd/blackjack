@@ -16,4 +16,8 @@ class Player
       false
     end # if
   end # hit?
+
+  def bet(bet)
+    @bank -= bet
+  end # bet
 end # class Player

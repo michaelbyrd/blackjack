@@ -20,4 +20,10 @@ class GameTest < MiniTest::Unit::TestCase
     @game.hit(@game.house.hand)
     assert_equal @game.house.hand.value, 2
   end
+
+  def test_new_round
+    @game.new_round
+    assert_equal @game.house.hand.size, 2
+    assert_equal @game.player.hand.size, 2
+  end
 end # class GameTest

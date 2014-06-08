@@ -37,4 +37,14 @@ class HandTest < MiniTest::Unit::TestCase
 
     assert_equal @hand.busted?, true
   end
+
+  def count_the_aces
+    aceohearts = Card.new(:A, :hearts)
+    aceospades = Card.new(:A, :spades)
+
+    @hand.add_card(aceohearts)
+    @hand.add_card(aceospades)
+
+    assert_equal @hand.ace_count, 2
+  end
 end
