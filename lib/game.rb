@@ -43,13 +43,17 @@ class Game
     @prompt.h_or_s
     if @player.hit?
       hit(@player.hand)
-      if @player.hand.busted? == false
-        hit_or_stand
-      else
+      if @player.hand.busted?
         @prompt.busted
+      else
+        hit_or_stand
       end # if
     end # if
-  end
+  end # hit_or_stand
+
+  def end_round
+
+  end # end_round
 end # class Game
 
 g = Game.new

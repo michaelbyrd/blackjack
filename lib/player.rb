@@ -19,5 +19,9 @@ class Player
 
   def bet(bet)
     @bank -= bet
-  end # bet
+  end # bet(bet)
+
+  def winnings(bet)
+    @bank += bet
+  end # winnings(bet)
 end # class Player
