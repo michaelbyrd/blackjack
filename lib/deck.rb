@@ -46,9 +46,9 @@ class Deck
 
   def shuffle
     if deck.size < 20
-      deck = Deck.new
+      @deck = Deck.new
     end # if
-    deck.shuffle!
+    @deck.shuffle!
   end #
 
   def cards_left

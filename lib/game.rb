@@ -11,9 +11,9 @@ class Game
     @house = House.new
     @player = Player.new
     @deck = Deck.new
-    @prompt = Prompt.new
+
     @bet = 0
-    @prompt.welcome
+    Prompt.welcome
   end # initialize
 
   def deal(hand)
@@ -37,20 +37,20 @@ class Game
     @house.hand = Hand.new
     deal(@house.hand)
     deal(@player.hand)
-    @prompt.what_would_you_like_to_bet(@player)
+    Prompt.what_would_you_like_to_bet(@player)
     @bet = gets.to_i
     @player.bet(@bet)
-    @prompt.house_is_showing(@house)
+    Prompt.house_is_showing(@house)
   end # new_round
 
   def hit_or_stand
-    @prompt.show_cards(@player.hand)
-    @prompt.h_or_s
+    Prompt.show_cards(@player.hand)
+    Prompt.h_or_s
     if @player.hit?
       hit(@player.hand)
       if @player.hand.busted?
-        @prompt.show_cards(@player.hand)
-        @prompt.busted
+        Prompt.show_cards(@player.hand)
+        Prompt.busted
       else
         hit_or_stand
       end # if
@@ -61,7 +61,7 @@ class Game
     if @house.hit?
       hit(@house.hand)
       if @house.hand.busted?
-        @prompt.house_busted
+        Prompt.house_busted
         win_or_lose
       else
         hit_or_stand_house
@@ -71,7 +71,7 @@ class Game
   end # hit_or_stand_house
 
   def win_or_lose
-    @prompt.show_cards_house(@house.hand)
+    Prompt.show_cards_house(@house.hand)
     if @player.hand.value > @house.hand.value\
       && !@player.hand.busted? || @house.hand.busted?
       @player.add_pot(@bet * 2)

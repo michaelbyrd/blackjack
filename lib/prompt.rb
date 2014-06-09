@@ -1,9 +1,9 @@
 # the printed output for Blackjack
-class Prompt
+module Prompt
   def initialize
   end # initialize
 
-  def welcome
+  def self.welcome
     puts '-------------------------------------------'
     puts '-         Welcome to my game of           -'
     puts '-                                         -'
@@ -14,19 +14,19 @@ class Prompt
     puts '-          Use them carefully!            -'
   end
 
-  def what_would_you_like_to_bet(player)
+  def self.what_would_you_like_to_bet(player)
     puts '-------------------------------------------'
     print 'What would you like to bet? bank = '
     print player.bank.to_s
     print ': '
   end
 
-  def house_is_showing(house)
+  def self.house_is_showing(house)
     print 'The house is showing: '
     puts house.hand.cards[0].to_s
   end
 
-  def show_cards(hand)
+  def self.show_cards(hand)
     print 'Your cards are: '
     hand.cards.each do |card|
       print card.to_s
@@ -35,7 +35,7 @@ class Prompt
     puts ''
   end
 
-  def show_cards_house(hand)
+  def self.show_cards_house(hand)
     print 'The houes\'s cards are: '
     hand.cards.each do |card|
       print card.to_s
@@ -44,15 +44,15 @@ class Prompt
     puts ''
   end
 
-  def h_or_s
+  def self.h_or_s
     print 'Would you like to (H)it or (S)tand? '
   end
 
-  def busted
+  def self.busted
     puts 'Busted!'
   end
 
-  def house_busted
+  def self.house_busted
     puts 'The house busted!'
   end
 end # class Prompt
