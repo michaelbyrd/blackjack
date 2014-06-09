@@ -21,7 +21,15 @@ class Hand
     @value += card.value
   end # add_card
 
+  def value_ace
+    if @value > 21 && @ace_count > 0
+      @value -= 10
+      @ace_count -= 1
+    end # if
+    @value
+  end
+
   def busted?
-    @value > 21
+    value_ace > 21
   end # busted?
 end # class Hand

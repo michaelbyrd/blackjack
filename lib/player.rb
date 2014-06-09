@@ -21,7 +21,7 @@ class Player
     @bank -= bet
   end # bet(bet)
 
-  def winnings(bet)
+  def add_pot(bet)
     @bank += bet
-  end # winnings(bet)
+  end # @pot(bet)
 end # class Player

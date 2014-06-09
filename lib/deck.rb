@@ -45,6 +45,9 @@ class Deck
   end # size
 
   def shuffle
+    if deck.size < 20
+      deck = Deck.new
+    end # if
     deck.shuffle!
   end #
 

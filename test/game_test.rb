@@ -9,14 +9,14 @@ class GameTest < MiniTest::Unit::TestCase
 
   def test_deal
     @game.deal(@game.player.hand)
-    assert_equal @game.player.hand.value, 3
+    assert_equal 13, @game.player.hand.value
     @game.deal(@game.house.hand)
-    assert_equal @game.house.hand.value, 7
+    assert_equal 7, @game.house.hand.value
   end
 
   def test_hit
     @game.hit(@game.player.hand)
-    assert_equal @game.player.hand.value, 1
+    assert_equal @game.player.hand.value, 11
     @game.hit(@game.house.hand)
     assert_equal @game.house.hand.value, 2
   end
