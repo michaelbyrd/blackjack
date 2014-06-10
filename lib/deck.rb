@@ -13,7 +13,7 @@ class Deck
   end # initialize
 
   def each
-    deck.each do |card|
+    @deck.each do |card|
       yield card.value
     end # do each card
   end # each

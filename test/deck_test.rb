@@ -56,10 +56,10 @@ class DeckTest < MiniTest::Unit::TestCase
     refute_equal @deck, shuffled_deck
   end
 
-  def test_deck_can_be_sorted
-    @deck.shuffle
-    @deck.sort
-
-    assert_equal :A, @deck.draw.rank
+  def test_deck_is_enumerable
+    test1 = @deck.all? { |cardvalue| cardvalue > 0 }
+    test2 = @deck.all? { |cardvalue| cardvalue > 5 }
+    assert_equal true, test1
+    assert_equal false, test2
   end
 end
