@@ -1,13 +1,19 @@
 # basically an array of card
 class Hand
-  attr_reader :cards, :value
-  attr_writer :cards, :value
+  attr_accessor :cards, :value
+  include Enumerable
 
   def initialize
     @cards = []
     @value = 0
     @ace_count = 0
   end # initialize
+
+  def each
+    @cards.each do |card|
+      yield card.value
+    end # do each card
+  end # each
 
   def size
     cards.size
