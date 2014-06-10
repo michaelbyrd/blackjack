@@ -2,8 +2,8 @@ require 'card'
 
 # ruby -Ilib lib/deck.rb
 class Deck
-  attr_reader :deck
-  attr_writer :deck
+  include Enumerable
+  attr_accessor :deck
 
   def initialize
     @values = nil
@@ -11,6 +11,12 @@ class Deck
     @deck = []
     build
   end # initialize
+
+  def each
+    deck.each do |card|
+      yield card.value
+    end # do each card
+  end # each
 
   def build
     make_arrays
@@ -28,15 +34,20 @@ class Deck
     while count < 52
       v = count % 13
       s = (count / 13 % 4)
-      deck.push(Card.new(@values[v], @suits[s]))
+      @deck.push(Card.new(@values[v], @suits[s]))
       count += 1
     end # while
     # shuffle
   end # make_deck
 
   def draw
-    if deck.size > 0
-      deck.shift
+    if @deck.size == 0
+      @deck = []
+      build
+      shuffle
+      @deck.shift
+    else
+      @deck.shift
     end # if
   end # draw
 
@@ -45,9 +56,6 @@ class Deck
   end # size
 
   def shuffle
-    if deck.size < 20
-      @deck = Deck.new
-    end # if
     @deck.shuffle!
   end #
 

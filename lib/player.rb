@@ -2,10 +2,9 @@ require 'hand'
 
 # player has a hand and a bank
 class Player
-  attr_reader :bank, :hand
-  attr_writer :bank, :hand
-  def initialize
-    @bank = 100
+  attr_accessor :bank, :hand
+  def initialize(bank = 100)
+    @bank = bank
     @hand = Hand.new
   end # initialize
 

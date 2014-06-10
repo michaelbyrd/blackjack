@@ -2,12 +2,9 @@ require 'deck'
 require 'hand'
 
 # the player that doesn't require a bank
-class House
-  attr_reader :hand
-  attr_writer :hand
-
+class House < Player
   def initialize
-    @hand = Hand.new
+    super
   end # initialize
 
   def hit?

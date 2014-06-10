@@ -46,14 +46,20 @@ class DeckTest < MiniTest::Unit::TestCase
     assert_equal @deck.cards_left, 22
   end
 
-  def test_empty_deck_returns_nil_on_draw
+  def test_empty_deck_does_not_return_nil
     52.times { @deck.draw }
-
-    assert_nil @deck.draw
+    refute_nil @deck.draw
   end
 
   def test_deck_can_be_shuffled
     shuffled_deck = @deck.shuffle
     refute_equal @deck, shuffled_deck
+  end
+
+  def test_deck_can_be_sorted
+    @deck.shuffle
+    @deck.sort
+
+    assert_equal :A, @deck.draw.rank
   end
 end
