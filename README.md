@@ -1,18 +1,14 @@
-# Card Deck tests
+# Blackjack!
 
-This exercise is to help you learn how to write and pass tests.
+
+## To run Blackjack
+
+Navigate to the lib folder and run 'ruby -I. game.rb' on the command line.
 
 ## Usage
 
-To run the tests, run `rake` on the command line. `rake` is a Ruby program that
-executes tasks from a file called a `Rakefile`. It is often used by Ruby
-libraries to run tests and other tasks.
+To run the tests, run `rake` on the command line. Note that you must comment out the last two lines of game.rb to run the test
 
-## What to do
+## Outstanding issues
 
-Open `test/card_test.rb` and `lib/card.rb` in Atom. Go to the command line and
-run `rake`. You will see text about your tests failing. Change the `Card` class
-until your tests pass. Once your tests pass, uncomment the next test and make
-it pass.
-
-Repeat this for the `Deck` class and `test/deck_test.rb`.
+The betting system is currently on the honor system.  It is up to the casino to keep track of outstanding debt.
