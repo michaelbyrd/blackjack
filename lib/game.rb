@@ -82,5 +82,5 @@ class Game
   end # end_round
 end # class Game
 
-# g = Game.new
-# g.run
+g = Game.new
+g.run
